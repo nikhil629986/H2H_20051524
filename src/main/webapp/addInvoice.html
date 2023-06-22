@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add The Data</title>
+    <script>
+        // Function to retrieve the value of the "slNo" query parameter
+        function getSlNoFromQueryParam() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('slNo');
+        }
+
+        // Function to pre-fill the "slNo" field in the form
+        function preFillSlNo() {
+            const slNoInput = document.getElementById('slNo');
+            const slNoValue = getSlNoFromQueryParam();
+
+            if (slNoValue) {
+                slNoInput.value = slNoValue;
+            }
+        }
+
+        // Call the preFillSlNo function when the page finishes loading
+        window.addEventListener('load', preFillSlNo);
+    </script>
+</head>
+<body>
+<form action="./add" method="POST">
+
+  <label for="slNo">Serial Number:</label>
+  <input type="text" name="slNo" id="slNo"><br>
+
+  <label for="customerOrderID">Customer Order ID:</label>
+  <input type="text" name="customerOrderID" id="customerOrderID"><br>
+
+  <label for="salesOrg">Sales Organization:</label>
+  <input type="text" name="salesOrg" id="salesOrg"><br>
+
+  <label for="distributionChannel">Distribution Channel:</label>
+  <input type="text" name="distributionChannel" id="distributionChannel"><br>
+
+  <label for="companyCode">Company Code:</label>
+  <input type="text" name="companyCode" id="companyCode"><br>
+
+  <label for="orderCreationDate">Order Creation Date:</label>
+  <input type="text" name="orderCreationDate" id="orderCreationDate"><br>
+
+  <label for="orderCurrency">Order Currency:</label>
+  <input type="text" name="orderCurrency" id="orderCurrency"><br>
+
+  <label for="amountInUSD">Amount in USD:</label>
+  <input type="text" name="amountInUSD" id="amountInUSD"><br>
+
+  <label for="orderAmount">Order Amount:</label>
+  <input type="text" name="orderAmount" id="orderAmount"><br>
+
+  <label for="division">Division:</label>
+  <input type="text" name="division" id="division"><br>
+
+  <label for="releasedCreditValue">Released Credit Value:</label>
+  <input type="text" name="releasedCreditValue" id="releasedCreditValue"><br>
+
+  <label for="purchaseOrderType">Purchase Order Type:</label>
+  <input type="text" name="purchaseOrderType" id="purchaseOrderType"><br>
+
+  <label for="orderCreationTime">Order Creation Time:</label>
+  <input type="text" name="orderCreationTime" id="orderCreationTime"><br>
+
+  <label for="creditControlArea">Credit Control Area:</label>
+  <input type="text" name="creditControlArea" id="creditControlArea"><br>
+
+  <label for="soldToParty">Sold To Party:</label>
+  <input type="text" name="soldToParty" id="soldToParty"><br>
+
+  <label for="requestedDeliveryDate">Requested Delivery Date:</label>
+  <input type="text" name="requestedDeliveryDate" id="requestedDeliveryDate"><br>
+
+  <label for="creditStatus">Credit Status:</label>
+  <input type="text" name="creditStatus" id="creditStatus"><br>
+
+  <label for="customerNumber">Customer Number:</label>
+  <input type="text" name="customerNumber" id="customerNumber"><br>
+
+  <label for="uniqueCustID">Unique Customer ID:</label>
+  <input type="text" name="uniqueCustID" id="uniqueCustID"><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
