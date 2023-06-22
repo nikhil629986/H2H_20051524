@@ -128,4 +128,30 @@ public void deleteInvoice(int slNo) {
 
 
 
+public void updateInvoice(int invoiceId, String editedOrderCurrency, int editedCompanyCode, String editedDistributionChannel) {
+
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    
+    String sql = "UPDATE h2h_oap SET ORDER_CURRENCY = ?, COMPANY_CODE = ?, DISTRIBUTION_CHANNEL = ? WHERE Sl_no = ?";
+
+    try (Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setString(1, editedOrderCurrency);
+        statement.setInt(2, editedCompanyCode);
+        statement.setString(3, editedDistributionChannel);
+        statement.setInt(4, invoiceId);
+
+        statement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace(); // Handle the exception appropriately
+    }
+}
+
+
+
 }
